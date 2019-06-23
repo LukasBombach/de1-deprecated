@@ -1,3 +1,6 @@
+# System
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -59,3 +62,7 @@ typings/
 
 # next.js build output
 .next
+
+# Project
+.rpt2_cache
+dist

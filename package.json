@@ -1,0 +1,30 @@
+{
+  "name": "de1",
+  "version": "1.0.0",
+  "description": "Decent Espresso BLE adapter",
+  "main": "dist/de1.cjs.js",
+  "module": "dist/de1.esm.js",
+  "browser": "dist/de1.umd.js",
+  "repository": "git@github.com:LukasBombach/de1.git",
+  "author": "Lukas Bombach <lukas.bombach@googlemail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "devDependencies": {
+    "@types/es6-promisify": "6.0.0",
+    "@types/lodash": "4.14.134",
+    "@types/noble": "0.0.39",
+    "rollup": "1.16.2",
+    "rollup-plugin-terser": "5.0.0",
+    "rollup-plugin-typescript2": "0.21.2",
+    "typescript": "3.5.2"
+  },
+  "dependencies": {
+    "@abandonware/noble": "1.9.2-2",
+    "binary": "0.3.0",
+    "es6-promisify": "6.0.1",
+    "lodash": "4.17.11"
+  }
+}
