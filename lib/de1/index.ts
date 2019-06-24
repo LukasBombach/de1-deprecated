@@ -2,7 +2,7 @@ import { Scanner, Device, Service } from "../adapters";
 import converters, { Keys, Values, State } from "./converters";
 import { DE1_NAME, SERVICE_UUID } from "./settings";
 
-export type Listener<N> = (value: Values<N>) => void;
+export type Listener<N extends Keys> = (value: Values<N>) => void;
 
 export default class DE1 {
   private device: Device;

@@ -1,11 +1,16 @@
-import State from "./state";
+import StateConverter from "./state";
+
+export { State } from "./state";
+
+export type Keys = keyof Converters;
+export type Values<Key extends Keys> = Converters[Key];
 
 export interface Converters {
-  a003: State;
+  state: StateConverter;
 }
 
 const converters: Converters = {
-  a003: new State()
+  state: new StateConverter()
 };
 
 export default converters;
