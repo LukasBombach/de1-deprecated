@@ -26,8 +26,8 @@ export interface BinaryDesc {
 }
 
 export default abstract class Converter {
-  public abstract decode<T>(buffer: Buffer): T;
-  public abstract encode<T>(newState: T): Buffer;
+  public abstract decode(buffer: Buffer): any;
+  public abstract encode(newState: any): Buffer;
 
   parse(buffer: Buffer, descriptions: BinaryDesc[]): ParsedBinary {
     const initialBin = parse(buffer);
