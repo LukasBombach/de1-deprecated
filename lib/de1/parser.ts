@@ -1,7 +1,7 @@
 export default class BinaryParser<T> {
   private buffer: DataView;
   private offset: number;
-  private varsInternal: Partial<T>;
+  private varsInternal: any;
 
   constructor(buffer: DataView) {
     this.buffer = buffer;
@@ -38,7 +38,7 @@ export default class BinaryParser<T> {
     return this;
   }
 
-  public vars(): Partial<T> {
+  public vars(): T {
     return this.varsInternal;
   }
 
