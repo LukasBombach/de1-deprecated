@@ -1,12 +1,12 @@
-export default class BinaryParser<T extends {}> {
+export default class BinaryParser<T> {
   private buffer: DataView;
   private offset: number;
-  public vars: T;
+  private varsInternal: Partial<T>;
 
   constructor(buffer: DataView) {
     this.buffer = buffer;
     this.offset = 0;
-    this.vars = {};
+    this.varsInternal = {};
   }
 
   public char(name: string) {
@@ -38,10 +38,14 @@ export default class BinaryParser<T extends {}> {
     return this;
   }
 
-  write(path: string, value: any) {
+  public vars(): Partial<T> {
+    return this.varsInternal;
+  }
+
+  private write(path: string, value: any) {
     const keys = path.split(".");
     const key = keys[keys.length - 1];
-    let node = this.vars;
+    let node = this.varsInternal;
     keys.slice(0, -1).forEach(function(k) {
       if (node[k] === undefined) node[k] = {};
       node = node[k];

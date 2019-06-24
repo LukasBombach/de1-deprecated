@@ -1,4 +1,4 @@
-import Converter, { BinaryDesc } from "./converter";
+import Converter from "../converter";
 
 export type State =
   | "sleep"

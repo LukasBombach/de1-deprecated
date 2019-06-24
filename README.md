@@ -4,6 +4,13 @@ Decent Espresso npm package
 
 # Todos
 
+- [ ] Get rid of dependencies
+
+  - [ ] binary
+  - [ ] lodash
+  - [ ] promisify?
+  - [ ] hex-to-array-buffer
+
 - [ ] Try creating a Chrome App for permanent permissions
   - https://developer.chrome.com/apps/app_bluetooth
 - [ ] Create fake DE1 for local testing
