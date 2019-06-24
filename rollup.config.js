@@ -4,7 +4,7 @@ import typescript from "typescript";
 import pkg from "./package.json";
 
 export default {
-  input: "lib/index.ts",
+  input: "lib/de1/index.ts",
   output: [
     {
       file: pkg.main,
@@ -17,7 +17,13 @@ export default {
     {
       file: pkg.browser,
       format: "iife",
-      name: "DE1"
+      name: "DE1",
+      globals: {
+        "es6-promisify": "es6Promisify",
+        "@abandonware/noble": "noble",
+        lodash: "lodash",
+        binary: "binary"
+      }
     }
   ],
   external: [...Object.keys(pkg.dependencies || {})],

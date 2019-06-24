@@ -16,6 +16,7 @@
     "@types/es6-promisify": "6.0.0",
     "@types/lodash": "4.14.134",
     "@types/noble": "0.0.39",
+    "hex-to-array-buffer": "1.1.0",
     "rollup": "1.16.2",
     "rollup-plugin-terser": "5.0.0",
     "rollup-plugin-typescript2": "0.21.2",
