@@ -34,7 +34,7 @@ export interface ParseResult {
 export type State = keyof States;
 
 export default class StateConverter extends Converter {
-  public static readonly names: States = {
+  public static readonly values: States = {
     sleep: 0x00,
     goingToSleep: 0x01,
     idle: 0x02,
@@ -67,10 +67,10 @@ export default class StateConverter extends Converter {
   }
 
   public encode(state: State): DataView {
-    const stateValue = StateConverter.names[state];
+    const stateValue = StateConverter.values[state];
     if (typeof stateValue === "undefined") new Error(`Unknow state "${state}"`);
     return new Serializer()
-      .char(StateConverter.names[state])
+      .char(StateConverter.values[state])
       .char(0x00)
       .dataView();
   }
@@ -83,7 +83,7 @@ export default class StateConverter extends Converter {
   }
 
   private stateAsStringForValue(state: number): State {
-    for (const k in StateConverter.names)
-      if (StateConverter.names[k] === state) return k as State;
+    for (const k in StateConverter.values)
+      if (StateConverter.values[k] === state) return k as State;
   }
 }

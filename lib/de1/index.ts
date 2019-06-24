@@ -1,5 +1,5 @@
 import { Scanner, Device, Service } from "../adapters";
-import { converters, Keys, Values, State } from "./converters";
+import converters, { Keys, Values, State } from "./converters";
 import { DE1_NAME, SERVICE_UUID } from "./settings";
 
 export type Listener<N> = (value: Values<N>) => void;
