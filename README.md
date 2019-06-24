@@ -4,6 +4,8 @@ Decent Espresso npm package
 
 # Todos
 
+- [ ] Try creating a Chrome App for permanent permissions
+  - https://developer.chrome.com/apps/app_bluetooth
 - [ ] Create fake DE1 for local testing
 - [ ] Create browser module
 - [ ] Get rid of dependencies (lodash, binary)
