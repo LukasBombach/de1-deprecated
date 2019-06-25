@@ -1,9 +1,7 @@
-import { Scanner, Device, Service } from "../adapters";
+import { Scanner, Device, Service } from "../adapters/base";
 import converters, { Keys, Values, State } from "./converters";
-import { Events, EventValues } from "./events";
+import { Events, Listener } from "./events";
 import { DE1_NAME, SERVICE_UUID } from "./settings";
-
-export type Listener<E extends Events> = (value: EventValues<E>) => void;
 
 export default class DE1 {
   private device: Device;
@@ -39,8 +37,8 @@ export default class DE1 {
     return (await this.get("water")).level;
   }
 
-  public isConnected(): boolean {
-    return this.device && this.device.isConnected();
+  public async isConnected(): Promise<boolean> {
+    return this.device && (await this.device.isConnected());
   }
 
   public async isTurnedOn(): Promise<boolean> {

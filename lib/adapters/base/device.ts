@@ -1,9 +1,10 @@
 import Service from "./service";
+import { Converters } from "../../de1/converters"; // TODO illegal scope
 import getCanonicalUUID, { UUID } from "./uuid";
 
 export type DeviceName = string | UUID;
 
-export abstract class Device {
+export default abstract class Device {
   private name: DeviceName;
   private optionalServices: string[];
 
@@ -12,10 +13,13 @@ export abstract class Device {
     this.optionalServices = optionalServices.map(getCanonicalUUID); // <-  TODO throw errors
   }
 
-  public abstract async connect(timeout?: number): Promise<this>;
+  public abstract async connect(timeout?: number): Promise<void>;
+  public abstract async disconnect(timeout?: number): Promise<void>;
+  public abstract async isConnected(): Promise<boolean>;
 
-  public abstract async getService<UUIDs = UUID | UUID[]>(
-    uuids: UUIDs,
+  public abstract async getService<T extends UUID | UUID[]>(
+    uuids: T,
+    converters: Converters,
     timeout?: number
-  ): Promise<UUIDs extends UUID[] ? Service[] : Service>;
+  ): Promise<T extends UUID ? Service : Service[]>;
 }
