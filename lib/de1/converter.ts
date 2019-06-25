@@ -1,4 +1,5 @@
-export default abstract class Converter {
-  public abstract decode(data: DataView): any;
-  public abstract encode(newState: any): DataView;
+export default abstract class Converter<T> {
+  public readonly type: T;
+  public abstract decode(data: DataView): T;
+  public abstract encode(newState: T): DataView;
 }

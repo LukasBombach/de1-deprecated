@@ -1,13 +1,9 @@
-import StateConverter, { State } from "./state";
+import StateConverter from "./state";
 
 export { State } from "./state";
 
-export type Keys = keyof ConverterTypes;
-export type Values<Key extends Keys> = ConverterTypes[Key];
-
-interface ConverterTypes {
-  state: State;
-}
+export type Keys = keyof Converters;
+export type Values<Key extends Keys> = Converters[Key]["type"];
 
 export interface Converters {
   state: StateConverter;

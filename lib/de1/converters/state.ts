@@ -33,7 +33,7 @@ export interface ParseResult {
 
 export type State = keyof States;
 
-export default class StateConverter extends Converter {
+export default class StateConverter extends Converter<State> {
   public static readonly values: States = {
     sleep: 0x00,
     goingToSleep: 0x01,
