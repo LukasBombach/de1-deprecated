@@ -1,11 +1,11 @@
 import { Scanner, Device, Service } from "../adapters/base";
-import converters, { Keys, Values, State } from "./converters";
+import converters, { Converters, Keys, Values, State } from "./converters";
 import { Events, Listener } from "./events";
 import { DE1_NAME, SERVICE_UUID } from "./settings";
 
 export default class DE1 {
   private device: Device;
-  private service: Service;
+  private service: Service<Converters>;
 
   public async connect(): Promise<void> {
     if (this.isConnected()) return;
