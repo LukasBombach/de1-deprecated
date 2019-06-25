@@ -2,6 +2,8 @@ import Converter from "../converter";
 import Parser from "../parser";
 import Serializer from "../serializer";
 
+export type State = keyof States;
+
 interface States {
   sleep: 0x00;
   goingToSleep: 0x01;
@@ -30,8 +32,6 @@ export interface ParseResult {
   state: number;
   substate: number;
 }
-
-export type State = keyof States;
 
 export default class StateConverter extends Converter<State> {
   public static readonly values: States = {
