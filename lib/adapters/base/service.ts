@@ -1,6 +1,8 @@
 // import { Keys, Values } from "../../de1/converters";
 import { Events, Listener } from "../../de1/events";
 
+// https://github.com/Microsoft/TypeScript/issues/7061#issuecomment-200911748
+
 module Service {
   type Keys = keyof Converters;
   type Values<Key extends Keys> = Converters[Key]["type"];
