@@ -60,19 +60,15 @@ export default class StateConverter extends Converter<State> {
 
   public decode(data: DataView): State {
     const { state } = this.parse(data);
-    const stateName = this.stateAsStringForValue(state);
-    if (typeof stateName === "undefined")
-      new Error(`Received unexpected state ${state}`);
+    const stateName = this.getStateFromValue(state);
+    this.ensure(stateName, `Received unexpected state ${state}`);
     return stateName;
   }
 
   public encode(state: State): DataView {
     const stateValue = StateConverter.values[state];
-    if (typeof stateValue === "undefined") new Error(`Unknow state "${state}"`);
-    return new Serializer()
-      .char(StateConverter.values[state])
-      .char(0x00)
-      .dataView();
+    this.ensure(stateValue, `Unknown state "${state}"`);
+    return this.serialize(state);
   }
 
   private parse(data: DataView): ParseResult {
@@ -82,8 +78,19 @@ export default class StateConverter extends Converter<State> {
       .vars();
   }
 
-  private stateAsStringForValue(state: number): State {
+  private serialize(state: State): DataView {
+    return new Serializer()
+      .char(StateConverter.values[state])
+      .char(0x00)
+      .dataView();
+  }
+
+  private getStateFromValue(state: number): State {
     for (const k in StateConverter.values)
       if (StateConverter.values[k] === state) return k as State;
+  }
+
+  private ensure(variable: any, message: string): void {
+    if (typeof variable === "undefined") new Error(message);
   }
 }
