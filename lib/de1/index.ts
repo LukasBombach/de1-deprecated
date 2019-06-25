@@ -11,7 +11,7 @@ export default class DE1 {
 
   public async connect(): Promise<void> {
     if (this.isConnected()) return;
-    this.device = await Scanner.connect(DE1_EAME, [SERVICE_UUID]);
+    this.device = await Scanner.connect(DE1_NAME, [SERVICE_UUID]);
     this.service = await this.device.getService(SERVICE_UUID, converters);
   }
 
