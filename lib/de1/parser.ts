@@ -16,8 +16,8 @@ export default class BinaryParser<T> {
     return this;
   }
 
-  public short(name: string) {
-    const value = this.buffer.getUint16(this.offset, false);
+  public short(name: string, divideBy = 1) {
+    const value = this.buffer.getUint16(this.offset, false) / divideBy;
     this.setVar(name, value);
     this.offset += 2;
     return this;
