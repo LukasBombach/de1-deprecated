@@ -44,7 +44,7 @@ export default class DE1 {
   }
 
   public async isTurnedOn(): Promise<boolean> {
-    return "sleep" !== (await this.get("state"));
+    return (await this.get("state")) !== "sleep";
   }
 
   public async get<N extends Keys>(name: N): Promise<Values<N>> {
