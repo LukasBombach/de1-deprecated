@@ -1,3 +1,4 @@
+import { Converters } from "../converter";
 import StateConverter from "./state";
 import WaterConverter from "./water";
 
@@ -6,12 +7,12 @@ export { State } from "./state";
 export type Keys = keyof Converters;
 export type Values<Key extends Keys> = Converters[Key]["type"];
 
-export interface Converters {
+export interface De1Converters extends Converters {
   state: StateConverter;
   water: WaterConverter;
 }
 
-const converters: Converters = {
+const converters: De1Converters = {
   state: new StateConverter(),
   water: new WaterConverter()
 };

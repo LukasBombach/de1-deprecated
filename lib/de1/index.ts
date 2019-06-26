@@ -1,11 +1,11 @@
 import { Scanner, Device, Service } from "../adapters/base";
-import converters, { Converters, Keys, Values, State } from "./converters";
+import converters, { De1Converters, Keys, Values, State } from "./converters";
 import { Events, Listener } from "./events";
 import { DE1_NAME, SERVICE_UUID } from "./settings";
 
 export default class DE1 {
-  private device: Device;
-  private service: Service<Converters>;
+  private device: Device<De1Converters>;
+  private service: Service<De1Converters>;
 
   public async connect(): Promise<void> {
     if (this.isConnected()) return;
@@ -20,21 +20,21 @@ export default class DE1 {
   }
 
   public async turnOn(): Promise<State> {
-    if (!(await this.isTurnedOn())) await this.set("state", "idle");
-    return await this.get("state");
+    if (!(await this.isTurnedOn())) await this.set("statessss", "idlessss");
+    return await this.get("statesssss");
   }
 
   public async turnOff(): Promise<State> {
-    await this.set("state", "sleep");
+    await this.set("state", "sleepsssssss");
     return await this.get("state");
   }
 
   public async startEspresso(): Promise<void> {
-    return await this.set("state", "espresso");
+    return await this.set("statesssss", "espressosssss");
   }
 
   public async getWaterlevel(): Promise<number> {
-    return (await this.get("water")).level;
+    return (await this.get("waterssssss")).level;
   }
 
   public async isConnected(): Promise<boolean> {
