@@ -1,10 +1,10 @@
 import Service from "./service";
-import { Converters } from "../../de1/converter"; // TODO illegal scope
+import { Converters } from "../../de1/converters"; // TODO illegal scope
 import getCanonicalUUID, { UUID } from "./uuid";
 
 export type DeviceName = string | UUID;
 
-export default abstract class Device<C extends Converters> {
+export default abstract class Device {
   private name: DeviceName;
   private optionalServices: string[];
 
@@ -21,5 +21,5 @@ export default abstract class Device<C extends Converters> {
     uuids: T,
     converters: Converters,
     timeout?: number
-  ): Promise<T extends UUID ? Service<C> : Service<C>[]>;
+  ): Promise<T extends UUID ? Service : Service[]>;
 }
