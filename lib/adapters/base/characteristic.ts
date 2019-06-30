@@ -1,4 +1,3 @@
-export type UUID = string;
 export type DeviceName = string;
 
 export default abstract class Characteristic {

@@ -1,9 +1,7 @@
-export type UUID = string | number;
-
 const validUUID = /^([0-9a-f]{8})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{4})([0-9a-f]{12})$/;
 
 // TODO throw errors
-export default function getCanonicalUUID(uuid: UUID): string {
+export default function getCanonicalUUID(uuid: BluetoothServiceUUID): string {
   if (typeof uuid === "number") uuid = uuid.toString(16);
   uuid = uuid.toLowerCase();
   if (uuid.length <= 8)
