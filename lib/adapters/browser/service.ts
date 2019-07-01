@@ -33,14 +33,12 @@ export default class BrowserService extends Service {
   }
 
   public async read<N extends Keys>(name: N): Promise<Values<N>> {
-    // this.ensureLoaded();
     const converter = this.converters[name];
     const dataView = await this.characteristics[converter.uuid].readValue();
     return converter.decode(dataView);
   }
 
   public async write<N extends Keys>(name: N, value: Values<N>): Promise<void> {
-    //this.ensureLoaded();
     const converter = this.converters[name];
     const dataView = converter.encode(value as any); // TODO any hack
     return await this.characteristics[converter.uuid].writeValue(dataView);
