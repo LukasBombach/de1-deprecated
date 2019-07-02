@@ -8,13 +8,13 @@ export default class DE1 {
   private service: Service;
 
   public async connect(): Promise<void> {
-    if (this.isConnected()) return;
+    if (await this.isConnected()) return;
     this.device = await Scanner.connect(DE1_NAME, [SERVICE_UUID]);
     this.service = await this.device.getService(SERVICE_UUID, converters);
   }
 
   public async disconnect(): Promise<void> {
-    if (!this.isConnected()) return;
+    if (!(await this.isConnected())) return;
     await this.device.disconnect();
     this.service = undefined;
   }
