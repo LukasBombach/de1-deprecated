@@ -1,6 +1,6 @@
-import { Converters } from "../../de1/converters";
+import { Converters } from "../../converters";
 import { Device } from "../base";
-import { Service } from ".";
+import Service from "./service";
 
 export default class BrowserDevice extends Device {
   private device: BluetoothDevice;

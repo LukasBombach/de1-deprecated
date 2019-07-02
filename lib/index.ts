@@ -1,4 +1,4 @@
-import { Scanner, Device, Service } from "../adapters/browser";
+import { Scanner, Device, Service } from "./adapters/browser";
 import converters, { Keys, Values, State } from "./converters";
 import { Events, Listener } from "./events";
 import { DE1_NAME, SERVICE_UUID } from "./settings";

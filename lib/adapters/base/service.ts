@@ -1,5 +1,5 @@
-import { Keys, Values } from "../../de1/converters";
-import { Events, Listener } from "../../de1/events";
+import { Keys, Values } from "../../converters";
+import { Events, Listener } from "../../events";
 
 // https://github.com/Microsoft/TypeScript/issues/7061#issuecomment-200911748
 // https://stackoverflow.com/questions/56769939/define-type-from-class-generic

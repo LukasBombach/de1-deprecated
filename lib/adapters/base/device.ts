@@ -1,5 +1,5 @@
 import Service from "./service";
-import { Converters } from "../../de1/converters"; // TODO illegal scope
+import { Converters } from "../../converters"; // TODO illegal scope
 import getCanonicalUUID from "./uuid";
 
 export default abstract class Device {

@@ -1,7 +1,7 @@
-import { keyBy } from "lodash";
-import { Converters, Keys, Values } from "../../de1/converters";
-import { Events, Listener } from "../../de1/events";
-import { Service } from "../base";
+import keyBy from "lodash.keyby";
+import { Converters, Keys, Values } from "../../converters/index";
+import { Events, Listener } from "../../events";
+import { Service } from "../base/index";
 
 export interface Characteristics {
   [uuid: string]: BluetoothRemoteGATTCharacteristic;

@@ -1,5 +1,5 @@
 import { Scanner } from "../base";
-import { Device } from ".";
+import Device from "./device";
 
 export default class BrowserScanner extends Scanner {
   static async connect(
