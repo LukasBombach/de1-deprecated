@@ -3,10 +3,10 @@ import Device from "./device";
 
 export default class BrowserScanner extends Scanner {
   static async connect(
-    deviceName: BluetoothServiceUUID, // TODO param name should match BLE spec
+    name: string,
     optionalServices?: BluetoothServiceUUID[]
   ): Promise<Device> {
-    const filters = [{ name: deviceName as string }];
+    const filters = [{ name }];
     const options = { filters, optionalServices };
     const device = await navigator.bluetooth.requestDevice(options);
     return await Device.connect(device, optionalServices);
