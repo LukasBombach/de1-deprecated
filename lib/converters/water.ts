@@ -8,7 +8,8 @@ export interface Water {
 }
 
 export default class WaterConverter extends Converter<Water> {
-  public readonly uuid = "a011";
+  public readonly uuid = "0000a011-0000-1000-8000-00805f9b34fb";
+  //public readonly uuid = "a011";
 
   public decode(data: DataView): Water {
     return new Parser<Water>(data)

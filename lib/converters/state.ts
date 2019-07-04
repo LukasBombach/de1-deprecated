@@ -34,7 +34,8 @@ export interface ParseResult {
 }
 
 export default class StateConverter extends Converter<State> {
-  public readonly uuid = "a003";
+  public readonly uuid = "0000a003-0000-1000-8000-00805f9b34fb";
+  //public readonly uuid = "a003";
 
   public static readonly values: States = {
     sleep: 0x00,
